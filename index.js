@@ -23,7 +23,11 @@ app.get("/", function (req, res) {
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
-
+app.get("/api/:date?", (req, res) => {
+  const timeNow = Date.now();
+  console.log(timeNow);
+  res.send({"unix": timeNow});
+})
 
 
 // Listen on port set in environment variable or default to 3000
