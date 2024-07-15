@@ -25,7 +25,7 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/:date?", (req, res) => {
-  const dateInput = parseInt(req.params.date) ? parseInt(req.params.date) : req.params.date;
+  const dateInput = !isNaN(req.params.date) ? parseInt(req.params.date) : req.params.date;
   const date = req.params.date ? new Date(dateInput) : new Date();
   
   if (!isNaN(date.getTime())) {
